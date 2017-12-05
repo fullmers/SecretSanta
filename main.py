@@ -3,10 +3,7 @@
 import sys
 import csv
 import sendEmail
-
-
-                
-    
+  
 if __name__ == '__main__':
     santas = sys.argv[1]
 
@@ -31,9 +28,6 @@ if __name__ == '__main__':
                 santa = santaDictionary[randomKeyOrder[i]]
                 santee = santaDictionary[randomKeyOrder[i+1]]
             
-            emailMessage = sendEmail.constructMessage(santa,santee)
-                        
-            print("santa: " + santa + ", santee: " + santee)
-            print(emailMessage)
-    print(randomKeyOrder)
-    print(list(santaDictionary.values()))
+            message = sendEmail.constructMessage(santa,santee)
+            toEmailAddress = key
+            sendEmail.send(toEmailAddress,message)

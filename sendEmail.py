@@ -1,9 +1,9 @@
 import smtplib
 import authenticationInfo
  
-login = authenticationInfo.login
-password = authenticationInfo.password
-smtpserver='smtp.gmail.com:587'
+LOGIN = authenticationInfo.login
+PASSWORD = authenticationInfo.password
+SMTPSERVER='smtp.gmail.com:587'
 
 SPENDING_LIMIT = "150 NOK"
 
@@ -11,7 +11,7 @@ def constructMessage(santaName, santeeName):
     greeting = "Dear " + santaName + ",\n\n"
     body = ("Thank you for participating in this year's Shortcut Secret Santa exchange!"
             " You are Santa to " + santeeName + ".\n\n"
-            "Kindly remember: there is a " + SPENDING_LIMIT + " on gifts. "
+            "Kindly remember: there is a " + SPENDING_LIMIT + " spending limit on gifts. "
             "You can alternatively make or bake something for " + santeeName +
             ", if you think they would like that.\n\n"
             "Finally, please remember you have until their last day before leaving for the holidays to sneakily deliver your gift ;) "
@@ -20,11 +20,11 @@ def constructMessage(santaName, santeeName):
     fullmessage = greeting + body + closing
     return fullmessage
 
-def sendemail(from_addr, to_addr, message):
-    server = smtplib.SMTP(smtpserver)
+def send(to_addr, message):
+    server = smtplib.SMTP(SMTPSERVER)
     server.starttls()
-    server.login(login,password)
-    server.sendmail(from_addr, to_addr, message)
+    server.login(LOGIN,PASSWORD)
+    server.sendmail(LOGIN, to_addr, message)
     server.quit()
     
 
