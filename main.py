@@ -3,6 +3,7 @@
 import sys
 import csv
 import sendEmail
+import random
   
 if __name__ == '__main__':
     santas = sys.argv[1]
@@ -16,16 +17,16 @@ if __name__ == '__main__':
             santaDictionary[email] = name
     
     randomKeyOrder = list(santaDictionary.keys())
+    random.shuffle(randomKeyOrder)
+    
     with open('santa_solution','w') as solutionFile:
-        solutionFile = open('santa_solution','w')
         last = len(randomKeyOrder) -1
         for i, key in enumerate(randomKeyOrder):
             solutionFile.write(key + '\n') #keep record of santa list, to reveal at end
+            santa = santaDictionary[randomKeyOrder[i]]
             if i == last:
-                santa = santaDictionary[randomKeyOrder[i]]
                 santee = santaDictionary[randomKeyOrder[0]]
             else:
-                santa = santaDictionary[randomKeyOrder[i]]
                 santee = santaDictionary[randomKeyOrder[i+1]]
             
             message = sendEmail.constructMessage(santa,santee)
