@@ -1,2 +1,0 @@
-login = 'YOUR GMAIL OR GSUITE ADDRESS'
-password = 'YOUR PASSWORD'
