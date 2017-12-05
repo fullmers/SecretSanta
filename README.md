@@ -2,6 +2,9 @@
 Secret Santa matcher and email sender
 
 # How to use
+0. Make sure you have python 3 installed.
+
+
 1. Create a csv file in the working directory with all the participants, with the following format:
 
 ```Participant Name, participants@email.address```
