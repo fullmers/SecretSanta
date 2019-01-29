@@ -26,3 +26,7 @@ Refer to testdata.csv for example
 
 
 6. Enjoy your Secret Santa exchange! When it is over, you can check the file santa_solution. Each name in the list is the santa for the following name in the list. The last name in the list is the Santa for the first name.
+
+## License
+
+This project is available under the [MIT LICENSE](https://github.com/fullmers/SecretSanta/blob/master/LICENSE)
